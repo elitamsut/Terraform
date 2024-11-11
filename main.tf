@@ -7,6 +7,15 @@ terraform {
   }
 }
 
+terraform {
+  backend "s3" {
+    bucket = "bucketeli"
+    key    = "terraform/terraform.tfstate"
+    region = "me-west1"
+  }
+}
+
+
 
 # VPC - https://registry.terraform.io/providers/hashicorp/google/4.74.0/docs/resources/compute_network
 resource "google_compute_network" "vpc" {
