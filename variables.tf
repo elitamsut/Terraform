@@ -53,7 +53,7 @@ variable "node_pool_min_count" {
 variable "node_pool_max_count" {
   description = "The maximum number of nodes in the node pool"
   type        = number
-  default     = 3
+  default     = 1
 }
 
 variable "node_pool_disk_size_gb" {
