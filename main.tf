@@ -15,6 +15,13 @@ terraform {
   }
 }
 
+provider "google" {
+  credentials = file("~/ingenio-task-gke/gke-demo/iac-terraform/eli-tamsut-devops-assessment-e1dc29958dcc.json")
+  project     = "eli-tamsut-devops-assessment"
+  region      = "me-west1"
+  zone        = "me-west-a"
+}
+
 
 
 # VPC - https://registry.terraform.io/providers/hashicorp/google/4.74.0/docs/resources/compute_network
@@ -34,12 +41,4 @@ resource "google_compute_subnetwork" "subnet" {
   region        = var.region
   network       = google_compute_network.vpc.name
   ip_cidr_range = var.cidrBlock
-}
-
-
-provider "google" {
-  credentials = file("~/ingenio-task-gke/gke-demo/iac-terraform/eli-tamsut-devops-assessment-e1dc29958dcc.json")
-  project     = "eli-tamsut-devops-assessment"
-  region      = "me-west1"
-  zone        = "me-west-a"
 }
